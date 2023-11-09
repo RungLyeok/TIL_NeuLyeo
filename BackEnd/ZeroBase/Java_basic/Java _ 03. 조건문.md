@@ -1,11 +1,11 @@
-# \[Java\] 03. 조건문
+# \[Java\] 03. 조건문 ( control flow statements )
 
 ---
 
   
   
 
-## 01\. 조건문이란?
+## 01\. 조건문 ( control flow statements )이란?
 
 조건문은 주어진 조거식의 결과에 따라 별도의 명령을 수행하도록 제어하는 명령문이다.
 

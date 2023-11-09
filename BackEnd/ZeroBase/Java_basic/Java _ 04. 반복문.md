@@ -1,4 +1,4 @@
-# \[Java\] 04. 반복문
+# \[Java\] 04. 반복문 ( iteration statements )
 
 ---
 

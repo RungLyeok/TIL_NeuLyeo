@@ -1,4 +1,4 @@
-# \[Java\] 05. 다차원 배열
+# \[Java\] 05. 다차원 배열 ( multi-dimensional array )
 
 ---
 
