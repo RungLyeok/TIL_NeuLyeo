@@ -1,4 +1,4 @@
-# \[ Backjoon - 25556번\] 포스택 ( with java )
+# \[ Backjoon - 25556번 \] 포스택 ( with java )
 
 [https://www.acmicpc.net/problem/25556](https://www.acmicpc.net/problem/25556)
 

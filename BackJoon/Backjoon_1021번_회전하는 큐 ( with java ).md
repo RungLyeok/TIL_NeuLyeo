@@ -1,4 +1,4 @@
-# \[ Backjoon - 1021번\] 회전하는  큐( with java )
+# \[ Backjoon - 1021번 \] 회전하는  큐 ( with java )
 
 https://www.acmicpc.net/problem/1021
 

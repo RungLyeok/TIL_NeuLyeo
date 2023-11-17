@@ -1,4 +1,4 @@
-# \[ Backjoon - 00번\] 00 ( with java )
+# \[ Backjoon - 00번 \] 00 ( with java )
 ## 문제
 ## 문제 주요 내용
 ## 문제 풀이
