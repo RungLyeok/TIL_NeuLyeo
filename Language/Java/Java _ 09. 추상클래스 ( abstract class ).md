@@ -2,9 +2,7 @@
 
 ---
 
-**목차**
 
-<script type="text/javascript">$(function(){ $("#toc").toc({content: ".tt_article_useless_p_margin", headings: "h2,h3,h4"}); });</script>
 
 ## 01\. 추상 클래스 (abstract class)
 
