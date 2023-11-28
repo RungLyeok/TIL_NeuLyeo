@@ -1,6 +1,7 @@
 # \[ BASIC MATH \] 03. 순열 ( permutation ) _ with java
 
 ## 팩토리얼 ( Factorial ) 구현
+
 ```
 import java.util.stream.IntStream;  
   
@@ -27,6 +28,8 @@ public class c_permutation {
 
 ## 순열 구현
 
+![](https://i.imgur.com/V7RoiAN.png)
+
 ```
 public class c_permutation {  
     public static void main (String[] args) { 
@@ -48,6 +51,8 @@ public class c_permutation {
 }
 ```
 ## 중복 순열 구현
+
+![](https://i.imgur.com/ABg7kaT.png)
 
 ```
 public class c_permutation {  
@@ -71,6 +76,9 @@ public class c_permutation {
 ```
 
 ## 원 순열 구현
+
+![](https://i.imgur.com/u9Ja7qX.png)
+
 ```
 public class c_permutation {  
     public static void main (String[] args) { 
