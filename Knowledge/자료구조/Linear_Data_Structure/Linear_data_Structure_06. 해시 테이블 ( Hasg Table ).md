@@ -1,5 +1,5 @@
-# \[ Linear Data Structure \]  데크 ( Deque )
-## 데크 ( Deque ) 이란?
+# \[ Linear Data Structure \]  해시 테이블 ( Hash Table )
+## 해시 테이블 ( Hash Table ) 이란?
 데크(Deque)는 Double-Ended Queue의 줄임말로, 양쪽 끝에서 데이터를 추가/반환/삭제할 수 있는 형태의 자료구조이다.
 
 스택(Stack)과 큐(Queue)의 특징을 모두 갖고 있다.  
