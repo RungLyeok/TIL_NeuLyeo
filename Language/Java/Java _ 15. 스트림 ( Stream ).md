@@ -1,6 +1,12 @@
-# \[ Java \] 스트림 ( Stream ) 이란?
+# \[ Java \] 스트림 ( Stream )
 
+## 스트림 ( Stream ) 이란
 
+스트림(Stream)은 **Byte 형태로** 데이터를 운반하는데 사용되는 **연결통로**로써 **단방향 통신**을 하며, 큐의 FIFO 구조로 되어있다. 
+
+또한 입력과 출력을 통시에 수행하려면 입력을 위한 **입력 스트림(input stream)과 출력을 위한(output stream), 모두 2개의 스트림이 필요**하다.
+
+마지막으로 **Source - 입력 스트림 input Stream- 출력 스트림 output Stream- Sink** 순서로 데이터가 흐른다.
 
 Java에서 스트림(Stream)은 람다를 활용할 수 있는 기술 중 하나이다,
 
@@ -592,3 +598,4 @@ list.stream().forEach(System.out::println);
 ## reference
 
 [https://futurecreator.github.io/2018/08/26/java-8-streams/](https://futurecreator.github.io/2018/08/26/java-8-streams/)
+https://terianp.tistory.com/19
