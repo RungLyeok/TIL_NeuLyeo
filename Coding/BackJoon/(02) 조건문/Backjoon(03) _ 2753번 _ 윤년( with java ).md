@@ -21,9 +21,16 @@ https://www.acmicpc.net/problem/2753
 ![](https://i.imgur.com/OJ0SmRH.png)  ![](https://i.imgur.com/G12Sjo1.png)
 
 ## 문제 주요 내용
+주어진 년도가 윤년이 되는 조건
+
+- 4의 배수 => 윤년
+
+4의 배수 이면서
+	- 400의 배수 => 윤년
+	- 100의 배수 => X
 
 ## 문제 풀이
-
+### if 문
 ```
 import java.io.BufferedReader;  
 import java.io.IOException;  
@@ -48,3 +55,25 @@ public class Main {
         }  
     }  
 }
+```
+
+![](https://i.imgur.com/4BmthFs.png)
+
+### 삼항연산자
+```
+import java.io.BufferedReader;  
+import java.io.IOException;  
+import java.io.InputStreamReader;  
+  
+public class Main {  
+    public static void main(String[] args) throws IOException {  
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));  
+  
+        int a = Integer.parseInt(br.readLine());  
+  
+        System.out.print((a % 4 == 0) ? ((a % 400 == 0) ? "1" :(a % 100 == 0)? "0" : "1") : "0");
+    }  
+}
+```
+
+![](https://i.imgur.com/F5M4Ai7.png)
