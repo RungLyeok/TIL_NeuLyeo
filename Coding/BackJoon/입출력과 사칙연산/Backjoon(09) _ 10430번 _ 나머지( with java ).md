@@ -22,22 +22,30 @@ https://www.acmicpc.net/problem/10430
 
 ## 문제 주요 내용
 
+## 문제 풀이
 
 ```
 import java.io.BufferedReader;  
 import java.io.IOException;  
 import java.io.InputStreamReader;  
+import java.util.StringTokenizer;  
   
   
 public class Main {  
     public static void main(String[] args) throws IOException {  
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));  
+        StringTokenizer st = new StringTokenizer(br.readLine());  
   
-        int year = Integer.parseInt(br.readLine());  
+        int a = Integer.parseInt(st.nextToken());  
+        int b = Integer.parseInt(st.nextToken());  
+        int c = Integer.parseInt(st.nextToken());  
   
-        if(year > 1000 && year <= 3000 ) {  
+        if((a >= 2  && a <= 10000) && (b >= 2  && b <= 10000) && (c >= 2  && c <= 10000)  ) {  
   
-            System.out.print(year - 543);  
+            System.out.println((a + b) % c);  
+            System.out.println(((a % c) + (b % c)) % c);  
+            System.out.println((a * b) % c);  
+            System.out.println(((a % c) * (b % c)) % c);  
         }  
     }  
 }
