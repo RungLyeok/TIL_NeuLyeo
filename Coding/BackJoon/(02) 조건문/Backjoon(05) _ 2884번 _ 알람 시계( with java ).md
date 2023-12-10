@@ -89,7 +89,7 @@ public class Main {
 
 ![](https://i.imgur.com/yumhJ2N.png)
 
-### 출력 StringBuilder 사용
+### 출력 보완 : StringBuilder 사용
 성능 향상을 위해 StringBuilder를 출력에 사용하였다.
 
 ```

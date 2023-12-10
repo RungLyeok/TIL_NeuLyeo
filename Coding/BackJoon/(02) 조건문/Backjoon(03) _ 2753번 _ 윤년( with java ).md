@@ -20,7 +20,7 @@ https://www.acmicpc.net/problem/2753
 ### 예제
 ![](https://i.imgur.com/OJ0SmRH.png)  ![](https://i.imgur.com/G12Sjo1.png)
 
-## 문제 주요 내용
+### 💡주의할 점 
 주어진 년도가 윤년이 되는 조건
 
 - 4의 배수 => 윤년

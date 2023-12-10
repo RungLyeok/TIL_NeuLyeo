@@ -16,8 +16,6 @@ https://www.acmicpc.net/problem/9498
 ![](https://i.imgur.com/roU1lUh.png)
 
 
-## 문제 주요 내용
-
 ## 문제 풀이
 
 ```

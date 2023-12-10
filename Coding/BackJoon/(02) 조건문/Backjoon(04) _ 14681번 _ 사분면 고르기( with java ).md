@@ -21,10 +21,6 @@ https://www.acmicpc.net/problem/14681
 ### 예제
 ![](https://i.imgur.com/TMbCVSS.png)  ![](https://i.imgur.com/ctvyZaN.png)
 
-
-
-## 문제 주요 내용
-
 ## 문제 풀이
 ### if 문
 ```

@@ -21,12 +21,6 @@ https://www.acmicpc.net/problem/1330
 ![](https://i.imgur.com/q5YchLQ.png) ![](https://i.imgur.com/EMjvfmt.png) ![](https://i.imgur.com/vR0G7y4.png)
 
 
-
-
-
-
-## 문제 주요 내용
-
 ## 문제 풀이
 
 ```
