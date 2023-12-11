@@ -38,7 +38,3 @@ public class Solution {
     }
 }
 ```
-
-![](https://i.imgur.com/J7aOvHG.png)
-
-
