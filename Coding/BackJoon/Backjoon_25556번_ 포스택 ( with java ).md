@@ -2,27 +2,53 @@
 
 [https://www.acmicpc.net/problem/25556](https://www.acmicpc.net/problem/25556)
 
- [25556번: 포스택
-
-포닉스가 순열을 청소할 수 있으면 YES, 불가능하다면 NO를 출력한다.
-
-www.acmicpc.net](https://www.acmicpc.net/problem/25556)
 
 ## 문제
+![](https://i.imgur.com/mmAEiMF.png)
 
-![](https://i.imgur.com/6Sz70xo.png)
+### 입력
+>![](https://i.imgur.com/C5Oi1qb.png)
+>
+### 출력
+>
+>![](https://i.imgur.com/ejqMg99.png)
+>
 
-![](https://i.imgur.com/tsGSt9d.png)
+### 예제
+![](https://i.imgur.com/Ui0Hv8s.png) ![](https://i.imgur.com/BEYlLUB.png)
 
-## 문제 주요 내용
+
+## 문제 풀이
+### 문제 접근 ( 알고리즘 )
+
 - 입력
 	-  첫째 줄 입력 :  순열의 길이 N (1 <= N <= 100 000)
 	-  둘째 줄 입력 : 순열 A의 원소 ( 1 <= A  <= N / 중복X ), 공백으로 구분
 
 
-스택에 이미 들어간 data 보다 삽입하려는 num 의 값이 작으면 안된다.
+**스택은 ( Last In First Out ) 후입선출의 특성을 가지고 있다.**  
+  
 
-stack.peek() < num 일 때만 stack.push(num) 한다
+따라서 스택에 data를 넣을 때 오름차순으로 넣어야지만 오름차순의 출력을 받을 수 있다.
+
+  
+
+|stack|[ 1 ]|[ 1, 2 ]|[ 1, 2, 3 ]|
+|---|---|---|---|
+|오름차순 [ 1, 2, 3 ]|push( 1 )|push( 2 )|push( 3 )|
+|stack|[ 1, 2, 3 ]|[ 1, 2 ]|[ 1 ]|
+|pop()|3|2|1|
+|result|3|2 3|1 2 3|
+
+  
+
+result : 꺼낸 수들은 순서대로 오른쪽에서 왼쪽으로 나열
+  
+따라서 스택에 이미 들어간 data 보다 삽입하려는 num의 값이 작으면 안 된다.  
+
+stack.peek() < num 일 때만 stack.push(num) 한다.
+
+만약 위 규칙을 지키지 않는다면 어떻게 하더라도 출력한 값들을 오름차순으로 만들 수 없다. ( = 포닉스 청소 불가능 )
 
 > 예제 1번  
 >   
@@ -46,7 +72,7 @@ stack.peek() < num 일 때만 stack.push(num) 한다
 > stack3 : 3  
 > stack4 : 2
 
-## 문제 풀이
+### 풀이
 
 ```
 import java.util.ArrayList;  
