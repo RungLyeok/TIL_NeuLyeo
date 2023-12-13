@@ -32,10 +32,10 @@ public class Solution {
             System.out.print(a);
         }
     }
-}```
+}
+```
 
-![](https://i.imgur.com/CL6ZxIG.png)
+![](https://i.imgur.com/JtgV35Y.png)
 
 
 
-![](https://i.imgur.com/4fKfpMZ.png)
