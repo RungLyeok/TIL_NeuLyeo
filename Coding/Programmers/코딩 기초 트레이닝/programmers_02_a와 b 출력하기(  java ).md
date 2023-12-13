@@ -1,4 +1,4 @@
-# [ Programmers ] _ a와 b 출력하기 ( with java )
+# [ Programmers ] _ a와 b 출력하기 ( java )
 https://school.programmers.co.kr/learn/courses/30/lessons/181951
 ## 문제 
 ### 문제 설명

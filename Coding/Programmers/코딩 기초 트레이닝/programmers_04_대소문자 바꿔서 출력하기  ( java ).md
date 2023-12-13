@@ -1,4 +1,4 @@
-# [ Programmers ] _ 대소문자 바꿔서 출력하기 ( with java )
+# [ Programmers ] _ 대소문자 바꿔서 출력하기 ( java )
 https://school.programmers.co.kr/learn/courses/30/lessons/181949
 ## 문제 
 ### 문제 설명

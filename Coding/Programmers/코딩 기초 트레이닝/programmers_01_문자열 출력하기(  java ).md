@@ -1,4 +1,4 @@
-# [ Programmers ] _ 문자열 출력하기( with java )
+# [ Programmers ] _ 문자열 출력하기( java )
 https://school.programmers.co.kr/learn/courses/30/lessons/181952
 ## 문제 
 ### 문제 설명
