@@ -86,12 +86,15 @@ public class Main {
           
         // 수열의 길이, N  
         int n = sc.nextInt();  
+
+		// 수열을 담을 배열 선언
         ArrayList<Integer> list = new ArrayList<>();  
           
         // 수열 생성, N만큼 반복  
         for (int i = 0; i < n; i++) {  
             list.add(sc.nextInt());  
-        }  
+        }
+          
         // 스택 4개를 담을 배열  
         ArrayList<Stack<Integer>> sList = new ArrayList<>();  
           
@@ -100,18 +103,22 @@ public class Main {
             sList.add(new Stack<>());  
             sList.get(i).push(0);  
         }  
+        
         // 청소할 수 있는지 확인  
         boolean flag = true;  
           
         // 수열 순회  
         for (int num : list) {  
+        
             // num을 스택에 넣을 수 있는지 확인  
             boolean isNumber = false;  
               
             // 배열 안에 있는 스택 순회  
-            for(Stack<Integer> a : sList){  
+            for(Stack<Integer> a : sList){
+              
                 // 스택의 peek 값 보다 num이 큰 경우  
-                if (num > a.peek()){  
+                if (num > a.peek()){
+                  
                     // 스택에 num을 추가  
                     a.push(num);  
                     isNumber = true;  
@@ -119,7 +126,8 @@ public class Main {
                     // num 추가 후 스택 순회 종료  
                     break;  
                 }  
-            }  
+            }
+              
             // isNumber이 false인 경우  
             // num 이 4개의 모든 스택의 peek값 보다 작은 경우  
             if (!isNumber) {  
@@ -128,7 +136,8 @@ public class Main {
                 // 수열 순회 종료  
                 break;  
             }  
-        }  
+        }
+          
         if (flag) {  
             System.out.println("YES");  
         } else {  

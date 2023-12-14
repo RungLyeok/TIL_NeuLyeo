@@ -146,6 +146,7 @@ public class Backjoon_1021 {
         for(int i = 1; i <= N; i++) {  
             q.add(i);  
         }  
+        
         // 어떠한 연산을 써야하는지 파악하는 과정  
         for(int i = 0; i < M; i++) {  
   
@@ -161,7 +162,7 @@ public class Backjoon_1021 {
                 half_idx = q.size() / 2 - 1;  
             }  
             else {  
-                // 큐의 킉가 홀수인 경우  
+                // 큐의 크가 홀수인 경우  
                 half_idx = q.size() / 2;  
             }  
   
