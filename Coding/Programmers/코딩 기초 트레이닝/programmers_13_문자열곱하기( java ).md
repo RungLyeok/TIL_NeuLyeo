@@ -16,7 +16,12 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181940
 
 ## 문제 풀이
 ### 문제 접근
-`StringBuilder` 를 사용해서 문제 해결
+정수를 문자열로 바꾸는 `String.valueOf( )`
+
+문자열을 이어주는 `.concat()`
+
+문자를 정수로 바꾸는 `Integer.parseInt( )`
+
 
 `.append()`와 반복문을 사용하여 입력 정수인 k 만큼 StringBuilder에 넣어준다.
 
