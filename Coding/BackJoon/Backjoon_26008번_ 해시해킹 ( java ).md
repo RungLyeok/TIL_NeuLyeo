@@ -25,6 +25,10 @@ https://www.acmicpc.net/problem/26008
 
 ## 문제 풀이
 ### 문제 접근 ( 알고리즘 )
+- 1번째열 입력 : 
+	- N : 비밀번호의 길이
+	- M : 문자 종류의 개수
+	- A : 정수
 
 ### 풀이
 
@@ -53,3 +57,7 @@ public class Main {
     }  
 }
 ```
+
+## reference
+https://gukin.tistory.com/21
+https://nukoori.tistory.com/40
