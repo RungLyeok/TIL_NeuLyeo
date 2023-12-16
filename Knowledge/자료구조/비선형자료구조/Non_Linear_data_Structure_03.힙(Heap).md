@@ -19,6 +19,8 @@
 - 완전 이진 트리 상태를 유지
 	- 항상 왼쪽부터 채워지는 트리( 왼쪽 자식이 없는데 오른쪽 자식 값이 있을 수 없다. )
 
+![](https://i.imgur.com/z3nu6K7.png)
+
 ### 우선순위 큐 ( Priority Queue )
 -  Queue : FIFO(First Out First In ) 형식의 자료구조
   
@@ -70,3 +72,4 @@
 ## reference
 https://velog.io/@bada308/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%ED%9E%99heap%EC%9D%B4%EB%9E%80
 https://you88.tistory.com/33
+https://dokuny-devlog.tistory.com/37
