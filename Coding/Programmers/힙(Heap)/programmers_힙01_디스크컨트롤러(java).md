@@ -17,6 +17,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/42627
 
 
 ## 문제 풀이
+![](https://i.imgur.com/gWATZCc.png)
 
 ### 문제 접근 ( 알고리즘 )
 - 입력 : 2차원 배열
