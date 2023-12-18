@@ -31,24 +31,28 @@ https://www.acmicpc.net/problem/2830
 import java.io.BufferedReader;  
 import java.io.IOException;  
 import java.io.InputStreamReader;  
-import java.util.StringTokenizer;  
   
-public class Main {  
+public class Backjoon_2830 {  
     public static void main(String[] args) throws IOException {  
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));  
-        StringTokenizer st = new StringTokenizer(br.readLine());  
   
-        int n = Integer.parseInt(st.nextToken());  
-        int m = Integer.parseInt(st.nextToken());  
-        int a = Integer.parseInt(st.nextToken());  
-        int h = Integer.parseInt(br.readLine());  
+        int n = Integer.parseInt(br.readLine());  
   
-        long answer = 1L;  
+        int[] pp = new int[20];  
   
-        for (int i = 0; i < n - 1; i++) {  
-            answer = (answer * m) % 1000000007;  
+        for (int i = 0; i < n; i++) {  
+            int name = Integer.parseInt(br.readLine());  
+            for(int j = 0; j < 20; j++) {  
+                if((name & (1 << j)) > 0) {  
+                    pp[j]++;  
+                }  
+            }  
         }  
-        System.out.print(answer);  
+        long sum = 0L;  
+        for (int i = 0; i < 20; i++) {  
+            sum += (1L << i) * pp[i] * (n - pp[i]);  
+        }  
+        System.out.println(sum);  
     }  
 }
 ```
