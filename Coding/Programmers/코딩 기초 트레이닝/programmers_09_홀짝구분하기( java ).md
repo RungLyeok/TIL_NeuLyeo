@@ -16,16 +16,13 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181944
 
 ## 문제 풀이
 ```
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
-        String str = (n % 2 == 0) ? n + " is even" : n + " is odd";
-        System.out.print(str);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.print(n % 2 == 0 ? n + " is even" : n + " is odd");
     }
 }
 ```
