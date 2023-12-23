@@ -19,7 +19,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181934
 
 
 ## 문제 풀이
-### 문제 접근
+### 코드 설명
 1. `solution(String ineq, String eq, int n, int m)` 메서드:
 
 	- 4개의 인수(`ineq`, `eq`, `n`, `m`)를 입력받아 불리언 표현식의 결과를 0 또는 1로 반환하는 메서드입니다.
