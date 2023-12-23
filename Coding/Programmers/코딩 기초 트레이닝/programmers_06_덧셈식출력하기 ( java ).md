@@ -13,13 +13,9 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181947
 ![](https://i.imgur.com/WLoQuVY.png)
 
 
-
-
-
-
-
-
 ## 문제 풀이
+### 코드 설명
+### 풀이
 ```
 import java.util.Scanner;
 
@@ -34,6 +30,5 @@ public class Solution {
 }
 ```
 
-![](https://i.imgur.com/CL6ZxIG.png)
 
 

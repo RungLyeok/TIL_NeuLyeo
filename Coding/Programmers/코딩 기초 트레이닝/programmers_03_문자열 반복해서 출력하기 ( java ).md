@@ -18,6 +18,8 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181950
 
 
 ## 문제 풀이
+### 코드 설명
+### 풀이
 ```
 import java.util.Scanner;
 

@@ -3,58 +3,67 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181930
 
 ## 문제 
 ### 문제 설명
-두 정수 `a`, `d`와 길이가 n인 boolean 배열 `included`가 주어집니다. 첫째항이 `a`, 공차가 `d`인 등차수열에서 `included[i]`가 i + 1항을 의미할 때, 이 등차수열의 1항부터 n항까지 `included`가 true인 항들만 더한 값을 return 하는 solution 함수를 작성해 주세요.
+1부터 6까지 숫자가 적힌 주사위가 세 개 있습니다. 세 주사위를 굴렸을 때 나온 숫자를 각각 `a`, `b`, `c`라고 했을 때 얻는 점수는 다음과 같습니다.
+
+- 세 숫자가 모두 다르다면 `a` + `b` + `c` 점을 얻습니다.
+- 세 숫자 중 어느 두 숫자는 같고 나머지 다른 숫자는 다르다면 (`a` + `b` + `c`) × (`a`2 + `b`2 + `c`2 )점을 얻습니다.
+- 세 숫자가 모두 같다면 (`a` + `b` + `c`) × (`a`2 + `b`2 + `c`2 ) × (`a`3 + `b`3 + `c`3 )점을 얻습니다.
+
+세 정수 `a`, `b`, `c`가 매개변수로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
 ### 제한사항
-- 1 ≤ `a` ≤ 100
-- 1 ≤ `d` ≤ 100
-- 1 ≤ `included`의 길이 ≤ 100
-- `included`에는 true가 적어도 하나 존재합니다.
+- `a`, `b`, `c`는 1이상 6이하의 정수입니다.
 ### 입출력 예
-![](https://i.imgur.com/mNfAYxy.png)
+![](https://i.imgur.com/JNNdtUB.png)
 
 ## 문제 풀이
 ### 코드 설명
-1. 함수 정의:
+1. 클래스 및 함수 정의:
 
-- `public int solution(int a, int d, boolean[] included)`: 이 코드는 `solution`이라는 함수를 정의합니다.
-    - `a`: 첫 번째 숫자를 의미합니다.
-    - `d`: 공차(등차수열에서 연속된 두 수의 차이)를 의미합니다.
-    - `included`: 각 숫자를 포함할지 여부를 나타내는 boolean 배열입니다.
-    - 함수는 `int`형 값을 반환합니다.
+- `import java.util.*;`: `Math` 클래스를 사용하기 위해 `java.util` 패키지를 불러옵니다.
+- `class Solution`: 솔루션을 담고 있는 클래스를 정의합니다.
+- `public int solution(int a, int b, int c)`: 문제의 솔루션을 제공하는 함수를 정의합니다. 이 함수는 세 개의 정수 `a`, `b`, `c`를 입력받아 점수 값을 계산하여 반환합니다.
 
-2. 변수 선언:
+2. 점수 계산:
 
-- `int answer = 0`: 결과를 저장할 변수 `answer`를 0으로 초기화합니다.
-- `int n = a`: 현재 숫자를 저장할 변수 `n`을 `a`로 초기화합니다.
+- `int answer` 변수: 계산된 점수를 저장할 변수입니다.
+- 3항 연산자를 사용하여 세 가지 조건에 따라 점수를 계산합니다.
 
-3. 반복문:
+조건 1:
 
-- `for (boolean b : included)`: `included` 배열의 각 요소에 대해 반복합니다.
-    - `if (b == true)`: 현재 요소가 `true`인 경우, 즉 현재 숫자를 포함해야 하는 경우 다음을 수행합니다.
-        - `answer += n`: 현재 숫자 `n`을 `answer`에 더합니다.
-    - `n += d`: 다음 숫자를 계산하기 위해 `n`에 `d`를 더합니다.
+- `(a == b && b == c)`: 세 숫자가 모두 같다면
+- 계산: `(int)(Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3)) * (int)(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2)) * (a+b+c)`
+- 세 숫자의 세제곱의 합, 세 숫자의 제곱의 합, 세 숫자의 합을 모두 곱합니다.
 
-4. 결과 반환:
+조건 2:
 
-- `return answer`: 최종적으로 계산된 `answer` 값을 반환합니다.
+- `((a == b) || (a==c) || (b==c))`: 세 숫자 중 두 숫자가 같다면
+- 계산: `(int)(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2)) * (a+b+c)`
+- 세 숫자의 제곱의 합과 세 숫자의 합을 곱합니다.
 
-코드의 역할:
+조건 3:
 
-이 코드는 `a`부터 시작해서 공차가 `d`인 등차수열에서 `included` 배열의 값이 `true`인 숫자들의 합을 계산합니다. 예를 들어, `a = 10`, `d = 5`, `included = {true, false, true}`인 경우, 결과는 10 + 20 = 30이 됩니다.
+- 위의 두 조건에 해당하지 않는 경우(세 숫자가 모두 다르다면)
+- 계산: `a + b + c`
+- 세 숫자의 합만 반환합니다.
+
+3. 결과 반환:
+
+- `return answer`: 계산된 점수 `answer`를 반환합니다.
 
 ### 풀이
 ```
 class Solution {
-    public int solution(int a, int d, boolean[] included) {
-        int answer = 0;
-        int n = a;
-        for (boolean b : included) {
-            if (b == true) {
-                answer += n;
-            }
-            n += d;
-        }
-    
+    public int solution(int a, int b, int c) {
+        
+        int answer = (a == b && b == c) 
+            ? (int)(Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3)) *
+            (int)(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2)) * (a+b+c)
+            
+            : ((a == b) || (a==c) || (b==c)) 
+            ? (int)(Math.pow(a, 2) + Math.pow(b, 2) + Math.pow(c, 2)) * (a+b+c)
+                
+            : a + b + c;
+        
         return answer;
     }
 }

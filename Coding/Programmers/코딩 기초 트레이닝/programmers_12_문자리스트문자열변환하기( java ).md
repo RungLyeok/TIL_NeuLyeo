@@ -17,7 +17,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181941
 
 
 ## 문제 풀이
-### 문제 접근
+### 코드 설명
 `StringBuilder` 를 사용해서 문제 해결
 
 `.append()`와 반복문을 사용하여 StringBuilder에 넣어준다.
@@ -31,7 +31,6 @@ class Solution {
 }
 ```
 
-![](https://i.imgur.com/fpJRLne.png)
 
 
 

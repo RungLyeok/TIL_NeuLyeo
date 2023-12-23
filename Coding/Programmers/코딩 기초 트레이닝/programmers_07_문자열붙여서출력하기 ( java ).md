@@ -14,9 +14,9 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181946
 ### 입출력 예
 ![](https://i.imgur.com/4pm8Kpf.png)  ![](https://i.imgur.com/lhIsnLK.png)
 
-
-
 ## 문제 풀이
+### 코드 설명
+### 풀이
 ```
 import java.util.Scanner;
 
@@ -30,7 +30,7 @@ public class Solution {
 }
 ```
 
-![](https://i.imgur.com/JtgV35Y.png)
+
 
 
 

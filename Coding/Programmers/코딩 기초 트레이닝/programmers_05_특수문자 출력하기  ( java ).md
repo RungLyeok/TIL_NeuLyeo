@@ -8,15 +8,9 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181948
 
 ### 입출력 예
 ![](https://i.imgur.com/hB6wbuc.png)
-
-
-
-
-
-
-
-
 ## 문제 풀이
+### 코드 설명
+### 풀이
 ```
 public class Solution {
     public static void main(String[] args) {
@@ -25,5 +19,4 @@ public class Solution {
 }
 ```
 
-![](https://i.imgur.com/0ODOoTU.png)
 

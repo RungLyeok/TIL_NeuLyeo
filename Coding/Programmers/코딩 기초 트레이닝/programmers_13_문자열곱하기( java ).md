@@ -15,7 +15,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181940
 
 
 ## 문제 풀이
-### 문제 접근
+### 코드 설명
 정수를 문자열로 바꾸는 `String.valueOf( )`
 
 문자열을 이어주는 `.concat()`
@@ -34,7 +34,6 @@ class Solution {
 }
 ```
 
-![](https://i.imgur.com/thl8EvG.png)
 
 
 
