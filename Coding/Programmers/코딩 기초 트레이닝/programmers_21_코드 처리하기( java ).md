@@ -1,4 +1,4 @@
-# [ Programmers ] _ flag에 따라 다른 값 반환하기 ( java )
+# [ Programmers ] _ 코드 처리하기 ( java )
 https://school.programmers.co.kr/learn/courses/30/lessons/181932
 
 ## 문제 
@@ -25,44 +25,51 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181932
 ![](https://i.imgur.com/w7z0dUW.png)
 
 ## 문제 풀이
-### 문제 접근
+### 코드 설명
+1. 변수 선언:
 
+- `answer`: 결과 문자열을 저장하기 위한 변수입니다.
+- `mode`: 현재 모드를 저장하기 위한 변수입니다. 0 또는 1의 값을 가질 수 있습니다.
 
-1. `solution(int a, int b, boolean flag)` 메서드:
+2. 반복문:
 
-	- 세 개의 인수 `a`, `b`, `flag`를 입력받아 `flag` 값에 따라 `a`와 `b`의 합 또는 차를 계산하는 메서드입니다.
+- `for` 문을 사용하여 `code`의 길이만큼 반복합니다.
 
-2. 삼항 연산자:
+3. 모드 전환:
 
-- `flag ? a + b : a - b`는 삼항 연산자로, 조건에 따라 두 값 중 하나를 선택하는 연산자입니다.
-    - `flag`가 `true`이면 `a + b`를 반환합니다. (합을 계산)
-    - `flag`가 `false`이면 `a - b`를 반환합니다. (차를 계산)
+- `code.charAt(i) == '1'`이면 현재 문자가 '1'이므로 `mode`를 1 - mode로 바꿉니다. 즉, 0에서 1로 또는 1에서 0으로 전환합니다.
 
-3. 결과 반환:
+4. 문자 추가:
 
-- 삼항 연산자를 통해 계산된 값을 `answer` 변수에 저장하고 반환합니다.
+- `mode`가 0이고 `i`가 짝수이면 현재 문자를 `answer`에 추가합니다.
+- `mode`가 1이고 `i`가 홀수이면 현재 문자를 `answer`에 추가합니다.
 
-코드 동작 예시:
+5. 결과 반환:
 
-- `a = 10, b = 5, flag = true`인 경우: - `flag`가 `true`이므로 `a + b`인 15를 반환합니다.
-- `a = 20, b = 10, flag = false`인 경우: - `flag`가 `false`이므로 `a - b`인 10을 반환합니다.
+- `answer`가 비어있으면 "EMPTY"를 반환하고, 그렇지 않으면 `answer`를 반환합니다.
 ### 풀이
-#### 삼항 연산자 사용
 ```
 class Solution {
-    public int solution(int a, int b, boolean flag) {
-        int answer = flag ? a + b : a - b;
-        return answer;
+    public String solution(String code) {
+        String answer = "";
+        int mode = 0;
+        
+        for (int i = 0; i < code.length(); i++) {
+            if(code.charAt(i) == '1') {
+                mode = 1 - mode;
+            } else {
+                if (mode == 0 && i % 2 == 0){
+                    answer += code.charAt(i);
+                } else if (mode == 1 && i % 2 == 1) {
+                    answer += code.charAt(i);
+                }
+            }
+        }
+        
+        return answer.isEmpty() ? "EMPTY" : answer;
     }
 }
 ```
-
-
-
-
-
-
-
 
 
 
