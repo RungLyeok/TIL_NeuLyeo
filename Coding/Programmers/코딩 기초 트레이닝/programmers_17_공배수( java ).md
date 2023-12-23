@@ -1,4 +1,4 @@
-# [ Programmers ] _ 공배수 ( java )
+# [ Programmers ]  공배수 ( java ) 17 / 124
 
 https://school.programmers.co.kr/learn/courses/30/lessons/181936
 ## 문제 
@@ -8,26 +8,48 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181936
 ### 제한사항
 - 10 ≤ `number` ≤ 100
 - 2 ≤ `n`, `m` < 10
+
 ### 입출력 예
   ![](https://i.imgur.com/8bu2XOK.png)
 
 ## 문제 풀이
 ### 문제 접근
-1. `solution(int number, int n, int m)` 메서드:
+**1. 클래스 및 함수 정의:**
 
-- 세 개의 정수 `number`, `n`, `m`을 입력받아 `number`가 `n`과 `m`으로 모두 나누어떨어지는지(공배수) 여부를 확인하는 메서드입니다.
+- `class Solution`: 솔루션을 담고 있는 클래스를 정의합니다.
+- `public int solution(int number, int n, int m)`: 세 개의 정수 `number`, `n`, `m`을 인자로 받아 `number`가 `n`과 `m` 모두로 나누어 떨어지는지 확인하는 함수를 정의합니다.
 
-2. 삼항 조건문:. 
-- `number % n == 0 && number % m == 0` 조건으로 `number`가 `n`과 `m`으로 모두 나누어떨어지는지 판단합니다.
-    - 나누어떨어지면 `1`을 반환합니다.
-    - 나누어떨어지지 않으면 `0`을 반환합니다.
+**2. 나머지 연산 및 결과 저장:**
 
-코드 동작 예시:
+- `int answer = (number % n == 0 && number % m == 0) ? 1 : 0;`: 삼항 연산자를 사용하여 `number`가 `n`과 `m` 모두로 나누어 떨어지는지 확인하고 결과를 `answer`에 저장합니다.
+    - `number % n == 0 && number % m == 0`: `number`를 `n`으로 나눈 나머지와 `m`으로 나눈 나머지가 모두 0인지 확인합니다. 즉, 두 숫자 모두로 나누어 떨어지는지 확인합니다.
+    - `1`: 두 숫자 모두로 나누어 떨어지면 1을 저장합니다.
+    - `0`: 그렇지 않으면 0을 저장합니다.
 
-- `number = 12`, `n = 3`, `m = 4`인 경우:
-    - `12`는 `3`과 `4`로 모두 나누어떨어지므로 `1`을 반환합니다.
-- `number = 15`, `n = 3`, `m = 4`인 경우:
-    - `15`는 `4`로 나누어떨어지지 않으므로 `0`을 반환합니다.
+**3. 결과 반환:**
+
+- `return answer;`: `answer`를 반환합니다. 즉, `number`가 `n`과 `m` 모두로 나누어 떨어지면 1을 반환하고, 그렇지 않으면 0을 반환합니다.
+
+**실행 예시:**
+
+```
+int number = 12;
+int n = 3;
+int m = 4;
+
+int result = new Solution().solution(number, n, m);
+System.out.println(result);  // 출력: 1 (12는 3과 4로 나누어 떨어지기 때문에)
+```
+
+
+```
+int number = 15;
+int n = 2;
+int m = 5;
+
+int result = new Solution().solution(number, n, m);
+System.out.println(result);  // 출력: 0 (15는 2 또는 5로 나누어 떨어지지 않기 때문에)
+```
 
 ### 풀이
 ```

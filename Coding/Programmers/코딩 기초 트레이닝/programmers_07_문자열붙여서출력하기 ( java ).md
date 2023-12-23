@@ -25,7 +25,7 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         String a = sc.next();
         String b = sc.next();
-         System.out.print(a + b);
+        System.out.print(a + b);
     }
 }
 ```

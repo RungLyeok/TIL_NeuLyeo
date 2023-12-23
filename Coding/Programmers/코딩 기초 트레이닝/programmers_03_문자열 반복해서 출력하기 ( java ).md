@@ -1,4 +1,4 @@
-# [ Programmers ] _ 문자열 반복해서 출력하기 ( java )
+# [ Programmers ] 문자열 반복해서 출력하기 ( java ) 3 / 124
 https://school.programmers.co.kr/learn/courses/30/lessons/181950 
 ## 문제 
 ### 문제 설명

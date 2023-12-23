@@ -1,4 +1,4 @@
-# [ Programmers ] _ 문자열 곱하기 ( java )
+# [ Programmers ]  문자열 곱하기 ( java ) 13 / 124
 
 https://school.programmers.co.kr/learn/courses/30/lessons/181940
 ## 문제 
@@ -16,14 +16,29 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181940
 
 ## 문제 풀이
 ### 코드 설명
-정수를 문자열로 바꾸는 `String.valueOf( )`
+**1. 클래스 및 함수 정의:**
 
-문자열을 이어주는 `.concat()`
+- `class Solution`: 솔루션을 담고 있는 클래스를 정의합니다.
+- `public String solution(String my_string, int k)`: 문자열을 반복하는 함수를 정의합니다. 이 함수는 다음 두 개의 매개변수를 받습니다.
+    - `my_string`: 반복할 문자열입니다.
+    - `k`: 반복 횟수입니다.
 
-문자를 정수로 바꾸는 `Integer.parseInt( )`
+**2. 문자열 반복:**
 
+- `return my_string.repeat(k);`: 문자열을 `k`번 반복하여 새로운 문자열을 생성하고 반환합니다.
+    - `my_string.repeat(k)`: 문자열 `my_string`을 `k`번 반복하는 메서드입니다.
 
-`.append()`와 반복문을 사용하여 입력 정수인 k 만큼 StringBuilder에 넣어준다.
+**실행 예시:**
+
+Java
+
+```
+String my_string = "hello";
+int k = 3;
+
+String result = new Solution().solution(my_string, k);
+System.out.println(result);  // 출력: hellohellohello
+```
 
 ### 풀이
 ```

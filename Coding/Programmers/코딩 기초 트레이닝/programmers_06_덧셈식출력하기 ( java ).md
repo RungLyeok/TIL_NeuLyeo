@@ -1,4 +1,4 @@
-# [ Programmers ] _ 홀짝 구분하기 ( java )
+# [ Programmers ]  덧셈식 출력하기 ( java ) 6 / 124
 
 https://school.programmers.co.kr/learn/courses/30/lessons/181947
 ## 문제 

@@ -1,4 +1,4 @@
-# [ Programmers ] _ 두 수의 연산값 비교하기 ( java )
+# [ Programmers ]  두 수의 연산값 비교하기 ( java ) 15 / 124
 
 https://school.programmers.co.kr/learn/courses/30/lessons/181938
 ## 문제 
@@ -14,6 +14,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181938
 
 ### 제한사항
 - 1 ≤ `a`, `b` < 10,000
+
 ### 입출력 예
   ![](https://i.imgur.com/nekQES8.png)
 
@@ -22,20 +23,30 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181938
 
 ## 문제 풀이
 ### 문제 접근
-- 정수를 문자열로 바꾸는 `String.valueOf( )`
-	- 입력 받은 정수를 문자열로 바꾼다.
+**1. 클래스 및 함수 정의:**
 
-- 문자열을 이어주는 `.concat( )`
-	- 두 문자열을 순서를 바꿔 붙인다.
+- `class Solution`: 솔루션을 담고 있는 클래스를 정의합니다.
+- `public int solution(int a, int b)`: 두 개의 정수 `a`와 `b`를 인자로 받아 더 큰 값을 선택하여 반환하는 함수를 정의합니다.
 
-- 문자를 정수로 바꾸는 `Integer.parseInt( )`
-	- 이은 문자열을 정수로 바꾼다.
+**2. 숫자 비교:**
 
-numA = 문자열로 이은 정수 / numB = 2 * A * B
+- `int nAb = Integer.parseInt("" + a + b);`: 두 정수 `a`와 `b`를 문자열로 연결한 후 정수로 변환하여 `nAb`에 저장합니다. 즉, `a`와 `b`를 붙여 만든 숫자를 저장합니다.
+- `int nBa = 2 * a * b;`: `a`와 `b`의 곱에 2를 곱한 값을 `nBa`에 저장합니다.
+- `int answer = (nAb >= nBa) ? nAb : nBa;`: 삼항 연산자를 사용하여 `nAb`와 `nBa` 중 더 큰 값을 `answer`에 저장합니다.
 
-- 삼항연산자 이용
-	- 크기가 큰 값으로 반환한다.
-	- 크기가 같으면 numA 반환
+**3. 결과 반환:**
+
+- `return answer;`: 더 큰 값을 나타내는 `answer`를 반환합니다.
+
+**실행 예시:**
+
+```
+int a = 12;
+int b = 34;
+
+int result = new Solution().solution(a, b);
+System.out.println(result);  // 출력: 1234 (1234가 12 * 2 * 34보다 크기 때문에)
+```
 
 ### 풀이
 ```
@@ -49,7 +60,7 @@ class Solution {
 }
 ```
 
-![](https://i.imgur.com/IqV3gEK.png)
+
 
 
 

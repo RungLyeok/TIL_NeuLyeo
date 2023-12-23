@@ -1,4 +1,4 @@
-# [ Programmers ] _ 문자열 출력하기( java )
+# [ Programmers ]  문자열 출력하기 ( java )
 https://school.programmers.co.kr/learn/courses/30/lessons/181952
 ## 문제 
 ### 문제 설명
@@ -11,12 +11,9 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181952
 ### 입출력 예
 ![](https://i.imgur.com/4FThLrv.png)
 
-
-
-
-
 ## 문제 풀이
 ### 코드 설명
+
 ### 풀이
 ```
 import java.util.Scanner;

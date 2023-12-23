@@ -1,4 +1,4 @@
-# [ Programmers ] _ 코드 처리하기 ( java )
+# [ Programmers ]  코드 처리하기 ( java ) 21 / 124
 https://school.programmers.co.kr/learn/courses/30/lessons/181932
 
 ## 문제 
@@ -21,32 +21,34 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181932
 ### 제한사항
 - 1 ≤ `code`의 길이 ≤ 100,000
     - `code`는 알파벳 소문자 또는 "1"로 이루어진 문자열입니다.
+
 ### 입출력 예
 ![](https://i.imgur.com/w7z0dUW.png)
 
 ## 문제 풀이
 ### 코드 설명
-1. 변수 선언:
+**1. 클래스 및 함수 정의:**
 
-- `answer`: 결과 문자열을 저장하기 위한 변수입니다.
-- `mode`: 현재 모드를 저장하기 위한 변수입니다. 0 또는 1의 값을 가질 수 있습니다.
+- `class Solution`: 솔루션을 담고 있는 클래스를 정의합니다.
+- `public String solution(String code)`: 문자열 `code`를 인자로 받아 특정 규칙에 따라 문자를 선택하여 반환하는 함수를 정의합니다.
 
-2. 반복문:
+**2. 변수 초기화:**
 
-- `for` 문을 사용하여 `code`의 길이만큼 반복합니다.
+- `String answer = "";`: 결과 문자열을 저장할 빈 문자열을 생성합니다.
+- `int mode = 0;`: 모드를 저장할 변수를 0으로 초기화합니다. 이 모드는 문자 선택 방식을 결정하는 데 사용됩니다.
 
-3. 모드 전환:
+**3. 문자열 순회 및 문자 선택:**
 
-- `code.charAt(i) == '1'`이면 현재 문자가 '1'이므로 `mode`를 1 - mode로 바꿉니다. 즉, 0에서 1로 또는 1에서 0으로 전환합니다.
+- `for (int i = 0; i < code.length(); i++) { ... }`: 문자열 `code`를 처음부터 끝까지 순회합니다.
+- `if(code.charAt(i) == '1') { mode = 1 - mode; }`: 현재 문자가 '1'이라면 모드를 반전합니다. 즉, 0이라면 1로, 1이라면 0으로 바꿉니다.
+- `else { ... }`: 현재 문자가 '1'이 아닌 경우입니다.
+    - `if (mode == 0 && i % 2 == 0){ answer += code.charAt(i); }`: 모드가 0이고 인덱스가 짝수라면 현재 문자를 `answer`에 추가합니다.
+    - `else if (mode == 1 && i % 2 == 1) { answer += code.charAt(i); }`: 모드가 1이고 인덱스가 홀수라면 현재 문자를 `answer`에 추가합니다.
 
-4. 문자 추가:
+**4. 결과 반환:**
 
-- `mode`가 0이고 `i`가 짝수이면 현재 문자를 `answer`에 추가합니다.
-- `mode`가 1이고 `i`가 홀수이면 현재 문자를 `answer`에 추가합니다.
+- `return answer.isEmpty() ? "EMPTY" : answer;`: `answer`가 비어있다면 "EMPTY"를 반환하고, 그렇지 않다면 `answer`를 반환합니다.
 
-5. 결과 반환:
-
-- `answer`가 비어있으면 "EMPTY"를 반환하고, 그렇지 않으면 `answer`를 반환합니다.
 ### 풀이
 ```
 class Solution {
