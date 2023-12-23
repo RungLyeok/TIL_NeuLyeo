@@ -21,30 +21,16 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181939
 
 ## 문제 풀이
 ### 문제 접근
-- 정수를 문자열로 바꾸는 `String.valueOf( )`
-	- 입력 받은 정수를 문자열로 바꾼다.
-
-- 문자열을 이어주는 `.concat( )`
-	- 두 문자열을 순서를 바꿔 붙인다.
-
-- 문자를 정수로 바꾸는 `Integer.parseInt( )`
-	- 순서를 바꿔 붙인 문자열 2개를 다시 숫자로 바꿔 크기를 비교한다.
-
-- 삼항연산자 이용
-	- 크기가 큰 값으로 반환한다.
+- `Integer.parseInt()` 메서드를 사용하여 `""` 와 `a`와 `b`를 더하여 문자열로 변환합니다.
 
 ### 풀이
 ```
 class Solution {
     public int solution(int a, int b) {
-        String strA = String.valueOf(a);
-        String strB = String.valueOf(b);
-
-        int numA = Integer.parseInt(strA.concat(strB));
-        int numB = Integer.parseInt(strB.concat(strA));
-
-
-        int answer = (numA > numB) ? numA : numB;
+        int nAb = Integer.parseInt("" + a + b);
+        int nBa = Integer.parseInt("" + b + a);
+        
+        int answer = (nAb > nBa) ? nAb : nBa;
         return answer;
     }
 }
