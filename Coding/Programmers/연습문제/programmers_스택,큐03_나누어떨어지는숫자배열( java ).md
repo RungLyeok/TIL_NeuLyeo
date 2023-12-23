@@ -45,7 +45,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/12910
 import java.util.ArrayList;  
 import java.util.Arrays;  
   
-public class solution {  
+public class Solution {  
     public int[] solution(int[] arr, int divisor) {  
         // 반환 배열  
         int[] answer = {};  

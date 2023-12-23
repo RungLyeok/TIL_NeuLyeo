@@ -37,7 +37,7 @@ Map<String, Integer> 형식의 Map을 만들고, 의상의 종류를 Key로, 의
 ```
 import java.util.HashMap;
   
-public class solution {  
+public class Solution {  
 	public int solution(String[][] clothes) {  
   
 	    // (key:의상의 종류, value:의상 개수) 를 담을 HashMap 선언  
