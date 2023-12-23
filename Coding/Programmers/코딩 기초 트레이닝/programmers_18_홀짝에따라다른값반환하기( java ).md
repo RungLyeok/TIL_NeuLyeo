@@ -12,7 +12,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181935
 
 
 ## 문제 풀이
-### 문제 접근
+### 코드 설명
 1.  `solution(int n)` 메서드:
 
 - 정수 `n`을 입력받아 `1부터 n까지의 홀수의 합` 또는 `2부터 n까지의 짝수의 제곱의 합`을 계산하는 메서드입니다.
