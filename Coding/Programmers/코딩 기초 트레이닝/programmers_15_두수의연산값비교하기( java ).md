@@ -41,18 +41,9 @@ numA = 문자열로 이은 정수 / numB = 2 * A * B
 ```
 class Solution {
     public int solution(int a, int b) {
-        String strA = String.valueOf(a);
-        String strB = String.valueOf(b);
-
-        int numA = Integer.parseInt(strA.concat(strB));
-        int numB = a * b * 2;
-        
-        int answer = (numA > numB) ? numA : numB;
-        
-        if (numB == numA) {
-            answer = numA;
-        }
-        
+        int nAb = Integer.parseInt("" + a + b);
+        int nBa = 2 * a * b;
+        int answer = (nAb >= nBa) ? nAb : nBa;
         return answer;
     }
 }
