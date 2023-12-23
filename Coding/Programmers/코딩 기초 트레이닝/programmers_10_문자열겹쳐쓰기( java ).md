@@ -22,9 +22,8 @@ String 메서드를 이용해서 푸는 문제이다
 ```
 class Solution {
     public String solution(String my_string, String overwrite_string, int s) {
-        String str = my_string.substring(0, s);
-        String bStr = my_string.substring(s + overwrite_string.length());
-        String answer = str + overwrite_string + bStr;
+        String answer = my_string.substring(0,s) + overwrite_string 
+            + my_string.substring(s + overwrite_string.length());
         return answer;
     }
 }
