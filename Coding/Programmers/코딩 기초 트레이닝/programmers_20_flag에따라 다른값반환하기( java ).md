@@ -11,8 +11,6 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181933
 
 ## 문제 풀이
 ### 문제 접근
-**  
-코드 설명:**
 
 1. `solution(int a, int b, boolean flag)` 메서드:
 
