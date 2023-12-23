@@ -26,13 +26,7 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181941
 ```
 class Solution {
     public String solution(String[] arr) {
-        StringBuilder sb = new StringBuilder();
-        
-        for (int i = 0; i < arr.length; i++) {
-            sb.append(arr[i]);
-        }
-        
-        return sb.toString();
+        return String.join("", arr);
     }
 }
 ```
