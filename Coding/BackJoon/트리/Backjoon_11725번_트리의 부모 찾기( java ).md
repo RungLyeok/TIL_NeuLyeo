@@ -19,49 +19,38 @@ https://www.acmicpc.net/problem/11725
 
 ## 문제 풀이
 ### 코드 설명
-**1. 입력 받기:**
+**코드의 목적:**
 
-- `Scanner`를 사용하여 입력값을 읽습니다.
-- `N`: 트리의 노드 개수
-- `N - 1`개의 간선 정보: 각 간선은 두 노드의 쌍으로 주어집니다.
+- 이 코드는 트리의 각 노드의 부모 노드를 찾는 알고리즘을 구현합니다.
+- 깊이 우선 탐색(DFS)을 사용하여 트리를 탐색하며 각 노드의 부모를 기록합니다.
 
-**2. 트리와 부모 노드 배열 초기화:**
+**코드의 주요 구조:**
 
-- `ArrayList<Integer>[] tree`: 트리의 인접 리스트 표현을 위한 배열입니다. 각 인덱스는 노드를 나타내고, 해당 인덱스의 `ArrayList`에는 연결된 노드들이 저장됩니다.
-- `int[] parent`: 각 노드의 부모 노드를 저장할 배열입니다.
+1. 입력: 노드의 개수와 간선 정보 입력
+2. 그래프 표현: 인접 리스트로 트리 표현
+3. DFS 수행: 각 노드의 부모를 찾기 위해 DFS 탐색
+4. 결과 출력: 루트 노드(1번 노드)를 제외한 각 노드의 부모 노드 번호 출력
 
-**3. 트리 구성:**
+**코드의 주요 알고리즘:**
 
-- 입력받은 간선 정보를 바탕으로 `tree` 배열에 인접 노드들을 추가합니다.
+**DFS 함수:**
 
-**4. DFS를 통한 부모 노드 찾기:**
+- 현재 노드(`current`)에서 인접한 노드들을 순회합니다.
+- 인접한 노드(`child`)가 이전 노드(`prev`)가 아닌 경우,
+    - 현재 노드를 인접 노드의 부모로 기록합니다(`parent[child] = current`).
+    - 인접 노드를 시작점으로 DFS를 재귀적으로 수행합니다(`dfs(tree, parent, child, current)`).
 
-- `dfs` 함수에서 깊이 우선 탐색을 사용하여 각 노드의 부모 노드를 찾습니다.
-    - 현재 노드의 인접 노드들을 반복합니다.
-    - 인접 노드가 이전 노드가 아닌 경우(순환 방지):
-        - 인접 노드의 부모 노드를 현재 노드로 저장합니다.
-        - 인접 노드를 시작점으로 다시 DFS를 수행합니다.
+**코드의 흐름:**
 
-**`dfs` 함수:**
+1. 입력: 노드 개수(`N`)와 간선 정보 입력
+2. 그래프 표현: 인접 리스트 `tree`와 부모 노드 기록을 위한 배열 `parent` 생성
+3. DFS 수행: 노드 1을 시작점으로 DFS 수행 (`dfs(tree, parent, 1, 0)`)
+4. 결과 출력: 루트 노드(1번 노드)를 제외한 각 노드의 부모 노드 번호 출력
 
-```
-private static void dfs(ArrayList<Integer>[] tree, int[] parent, int current, int prev) {
-    for (int child : tree[current]) {
-        if (child != prev) {
-            // 이전 노드로 돌아가는 순환을 방지
-            parent[child] = current;
-            dfs(tree, parent, child, current);
-        }
-    }
-}
-```
+**코드의 핵심:**
 
-- `dfs` 함수는 깊이 우선 탐색을 수행하며 현재 노드의 인접 노드들을 재귀적으로 탐색합니다.
-- `child != prev` 조건은 이전 노드로 돌아가는 순환을 방지합니다.
-
-**5. 부모 노드 출력:**
-
-- 루트 노드(1번 노드)를 제외한 모든 노드의 부모 노드를 출력합니다.
+- DFS 탐색을 통해 트리를 순회하면서 각 노드의 부모를 기록합니다.
+- 인접 리스트 기반의 그래프 표현을 사용하여 탐색을 효율적으로 수행합니다.
 
 ### 풀이
 ```
@@ -69,40 +58,47 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+  public static void main(String[] args) {
+  
+    // 입력: 노드의 개수와 간선 정보 입력
+    Scanner scanner = new Scanner(System.in);
+    
+    int N = scanner.nextInt();
 
-        int N = scanner.nextInt();
-        ArrayList<Integer>[] tree = new ArrayList[N + 1];
-        int[] parent = new int[N + 1];
+    ArrayList<Integer>[] tree = new ArrayList[N + 1]; // 인접 리스트
+    int[] parent = new int[N + 1]; // 각 노드의 부모 노드 저장
 
-        for (int i = 1; i <= N; i++) {
-            tree[i] = new ArrayList<>();
-        }
+    // 그래프 표현: 인접 리스트로 트리 표현
+    for (int i = 1; i <= N; i++) {
+      tree[i] = new ArrayList<>();
+    }
+    
+    for (int i = 0; i < N - 1; i++) {
+      int u = scanner.nextInt();
+      int v = scanner.nextInt();
+      tree[u].add(v);
+      tree[v].add(u);
+    }
 
-        for (int i = 0; i < N - 1; i++) {
-            int u = scanner.nextInt();
-            int v = scanner.nextInt();
-            tree[u].add(v);
-            tree[v].add(u);
-        }
+    // DFS 수행: 각 노드의 부모를 찾기 위해 DFS 탐색
+    dfs(tree, parent, 1, 0);
 
-        dfs(tree, parent, 1, 0);
+    // 결과 출력: 루트 노드(1번 노드)를 제외한 각 노드의 부모 노드 번호 출력
+    for (int i = 2; i <= N; i++) {
+      System.out.println(parent[i]);
+    }
 
-        for (int i = 2; i <= N; i++) {
-            System.out.println(parent[i]);
-        }
+    scanner.close();
+  }
 
-        scanner.close();
-    }
-
-    private static void dfs(ArrayList<Integer>[] tree, int[] parent, int current, int prev) {
-        for (int child : tree[current]) {
-            if (child != prev) {
-                parent[child] = current;
-                dfs(tree, parent, child, current);
-            }
-        }
-    }
+  // DFS 함수: 현재 노드에서 인접한 노드들을 순회하며 부모 노드를 기록
+  private static void dfs(ArrayList<Integer>[] tree, int[] parent, int current, int prev) {
+    for (int child : tree[current]) {  // 현재 노드에서 인접한 노드들을 순회
+      if (child != prev) {  // 이전 노드가 아닌 경우
+        parent[child] = current;  // 현재 노드를 인접 노드의 부모로 기록
+        dfs(tree, parent, child, current);  // 인접 노드를 시작점으로 DFS 재귀 호출
+      }
+    }
+  }
 }
 ```
