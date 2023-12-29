@@ -21,9 +21,84 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181916
 
 ## 문제 풀이
 ### 코드 설명
+**코드의 목적:**
 
+- 이 코드는 네 개의 정수 `a`, `b`, `c`, `d`를 받아 특정 규칙에 따라 계산된 값을 반환하는 알고리즘을 구현합니다.
+
+**코드의 주요 구조:**
+
+1. Import: 필요한 클래스들을 import 합니다.
+2. 클래스 정의: `Solution` 클래스를 정의합니다.
+3. 메서드 정의: `solution` 메서드를 정의합니다.
+
+**코드의 주요 알고리즘:**
+
+1. 리스트 생성: 숫자들을 담은 리스트 `list`를 생성합니다.
+2. 숫자 빈도수 세기: `HashMap`을 사용하여 각 숫자의 등장 횟수를 셉니다.
+3. 빈도수에 따라 정렬: `Map.Entry`의 값(빈도수)을 기준으로 내림차순 정렬합니다.
+4. 빈도수에 따른 계산:
+    - 가장 많이 등장하는 숫자의 빈도수 `cnt`에 따라 다음을 수행합니다.
+        - `cnt == 4`: 네 숫자가 모두 같으므로 `a * 1111`을 반환합니다.
+        - `cnt == 3`: 세 숫자가 같으므로 `10 * p + q`의 제곱을 반환합니다.
+        - `cnt == 2`: 두 숫자가 같고 나머지 숫자도 같으면 `(p + q) * Math.abs(p - q)`를 반환하고, 한 숫자만 두 번 등장하면 `q * r`을 반환합니다.
+        - 그 외: 가장 작은 숫자를 반환합니다.
+
+**코드의 핵심:**
+
+- `HashMap`을 사용하여 숫자의 빈도수를 효과적으로 계산합니다.
+- `Map.Entry`를 정렬하여 가장 많이 등장하는 숫자를 쉽게 찾습니다.
+- 조건문을 사용하여 숫자들의 등장 빈도수에 따라 계산을 다르게 수행합니다.
 
 ### 풀이
 ```
+import java.util.HashMap;  
+import java.util.List;  
+import java.util.Map;  
+import java.util.stream.Collectors;
 
+class Solution {
+    public int solution(int a, int b, int c, int d) {
+        // 숫자 리스트 생성
+        List<Integer> list = List.of(a, b, c, d);
+
+        // 숫자 빈도수 세기
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int n : list) {
+            map.put(n, map.getOrDefault(n, 0) + 1);
+        }
+
+        // 빈도수에 따라 정렬
+        List<Map.Entry<Integer, Integer>> sortedM = map.entrySet().stream()
+                .sorted(Map.Entry.<Integer, Integer>comparingByValue().reversed())
+                .collect(Collectors.toList());
+
+        // 빈도수에 따른 계산
+        int cnt = sortedM.get(0).getValue();
+        if (cnt == 4) {
+            // 네 숫자 모두 같음
+            return a * 1111;
+        } else if (cnt == 3) {
+            // 세 숫자 같음
+            int p = sortedM.get(0).getKey();
+            int q = sortedM.get(1).getKey();
+            return (int)Math.pow(10 * p + q, 2);
+        } else if (cnt == 2) {
+            // 두 숫자 같음
+            int p = sortedM.get(0).getKey();
+            int q = sortedM.get(1).getKey();
+
+            if (sortedM.get(0).getValue() == sortedM.get(1).getValue()) {
+                // 두 숫자 빈도수 같음
+                return (p + q) * Math.abs(p - q);
+            } else {
+                // 한 숫자만 두 번 등장
+                int r = sortedM.get(2).getKey();
+                return q * r;
+            }
+        } else {
+            // 가장 작은 숫자 반환
+            return map.keySet().stream().min(Integer::compare).orElse(0);
+        }
+    }
+}
 ```
