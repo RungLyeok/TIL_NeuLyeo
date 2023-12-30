@@ -21,50 +21,51 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181912
 ### 코드 설명
 **코드의 목적:**
 
-- 이 코드는 주어진 문자열 `my_string`을 복사한 뒤, `queries`에 있는 쿼리들을 차례대로 적용하여 문자열을 변형하는 알고리즘을 구현합니다.
+- 이 코드는 주어진 문자열 배열 `intStrs`에서 특정 조건을 만족하는 숫자들을 추출하여 정수 배열로 반환하는 알고리즘을 구현합니다.
 
 **코드의 주요 구조:**
 
-1. 클래스 정의: `Solution` 클래스를 정의합니다.
-2. 메서드 정의: `solution` 메서드를 정의합니다.
+1. Import: `ArrayList` 클래스를 import 합니다.
+2. 클래스 정의: `Solution` 클래스를 정의합니다.
+3. 메서드 정의: `solution` 메서드를 정의합니다.
 
 **코드의 주요 알고리즘:**
 
-1. 문자열 복사: `my_string`을 복사하여 `StringBuilder` 객체 `answer`에 저장합니다.
-2. 쿼리 순회: `queries`의 각 쿼리 `q`에 대해 다음을 수행합니다.
-    - 쿼리의 시작 인덱스 `a`와 끝 인덱스 `b`를 추출합니다.
-    - `answer`의 `a`부터 `b`까지의 부분 문자열을 뒤집어 `sb`에 저장합니다.
-    - `answer`의 `a`부터 `b`까지의 부분 문자열을 `sb`의 문자열로 교체합니다.
-3. 결과 반환: `answer`에 저장된 최종 문자열을 반환합니다.
+1. 리스트 생성: 조건을 만족하는 숫자를 저장할 `ArrayList` 객체 `list`를 생성합니다.
+2. 문자열 배열 순회: `intStrs`의 각 문자열 `item`에 대해 다음을 수행합니다.
+    - 문자열의 `s`번째 인덱스부터 `s + l - 1`번째 인덱스까지의 부분 문자열을 숫자로 변환하여 `n`에 저장합니다.
+    - `n`이 `k`보다 크면 `list`에 추가합니다.
+3. 결과 반환: `list`의 요소들을 IntStream으로 변환하고 `toArray()` 메서드를 사용하여 정수 배열로 반환합니다.
 
 **코드의 핵심:**
 
-- `StringBuilder`를 사용하여 문자열을 효율적으로 조작합니다.
-- `substring` 메서드를 사용하여 부분 문자열을 추출합니다.
-- `reverse` 메서드를 사용하여 문자열을 뒤집습니다.
-- `replace` 메서드를 사용하여 문자열의 일부를 교체합니다.
+- `substring` 메서드를 사용하여 문자열에서 부분 문자열을 추출합니다.
+- `Integer.parseInt` 메서드를 사용하여 문자열을 숫자로 변환합니다.
+- 조건문을 사용하여 조건을 만족하는 숫자를 필터링합니다.
+- `stream`과 `mapToInt`를 사용하여 ArrayList를 정수 배열로 변환합니다.
 
 ### 풀이
 ```
+import java.util.ArrayList;
+
 class Solution {
-    public String solution(String my_string, int[][] queries) {
-        // my_string 복사
-        StringBuilder answer = new StringBuilder(my_string);
+    public int[] solution(String[] intStrs, int k, int s, int l) {
+        // 조건을 만족하는 숫자를 저장할 ArrayList
+        ArrayList<Integer> list = new ArrayList<>();
 
-        // 쿼리 순회
-        for (int[] q : queries) {
-            int a = q[0];
-            int b = q[1];
+        // 문자열 배열 순회
+        for (String item : intStrs) {
+            // 문자열에서 특정 부분 문자열 추출하여 숫자로 변환
+            int n = Integer.parseInt(item.substring(s, s + l));
 
-            // 부분 문자열 뒤집기
-            StringBuilder sb = new StringBuilder(answer.substring(a, b + 1)).reverse();
-
-            // 뒤집은 부분 문자열로 교체
-            answer.replace(a, b + 1, sb.toString());
+            // 조건 만족 여부 확인
+            if (k < n) {
+                list.add(n);
+            }
         }
 
-        // 최종 문자열 반환
-        return answer.toString();
+        // ArrayList를 정수 배열로 변환하여 반환
+        return list.stream().mapToInt(Integer::intValue).toArray();
     }
 }
 ```
