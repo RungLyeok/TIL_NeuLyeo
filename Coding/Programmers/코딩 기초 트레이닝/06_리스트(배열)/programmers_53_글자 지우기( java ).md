@@ -15,7 +15,6 @@ https://school.programmers.co.kr/learn/courses/30/lessons/181900
 
 ## 문제 풀이
 ### 코드 설명
-**코드 설명:**
 
 **코드의 목적:**
 
