@@ -1,4 +1,4 @@
-# \[ Non Linear Data Structure \] 그래프 ( Graph )
+# \[ Non Linear Data Structure \] 이진 탐색 트리 (Binary Search Tree)
 
 ## 배열 ( Array )
 
