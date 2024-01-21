@@ -1,214 +1,77 @@
 # \[ Non Linear Data Structure \] 이진 탐색 트리 (Binary Search Tree)
 
-## 배열 ( Array )
+## 이진 탐색 트리 (Binary Search Tree)
+### 개념
 
-배열 ( Array )는 동일한 데이터 타입의 요소들을 연속된 메모리 공간에 저장하는 방법이다.
+이진 탐색 트리란 아래의 규칙으로 구성된 이진 트리이다.
 
-예를 들어 배열이 `int` 타입인 경우 정수 요소만 저장할 수 있고 그 외 타른 타입의 요소는 저장할 수 없다.
+- 왼쪽 자식 노드의 키는 부모 노드의 키보다 작다.
+- 오른쪽 자식 노드의 키는 부모 노드의 키보다 크다.
+- 각각의 서브 트리도 이진 탐색 트리를 유지 한다.
+- 중복된 키를 허용하지 않는다.
 
-배열을 구성하는 각각의 값을 `요소 ( element )`라고 하며,  
-배열의 위치를 가르키는 숫자는 `인덱스 ( index )`라고 한다.
+![omnbHyQ.png](https://i.imgur.com/omnbHyQ.png)
+### 특징
+- 이진 탐색 트리 규칙에 의해 데이터가 정렬된다.
+	-  **유일한 키**: 모든 노드는 중복되지 않는 키를 갖습니다.
+	- **왼쪽 서브 트리**: 어떤 노드의 왼쪽 서브 트리에 있는 모든 노드의 키는 그 노드의 키보다 작습니다.
+	- **오른쪽 서브 트리**: 어떤 노드의 오른쪽 서브 트리에 있는 모든 노드의 키는 그 노드의 키보다 큽니다.
+	- **서브 트리의 성질**: 각 서브 트리 역시 이진 탐색 트리의 모든 성질을 만족해야 합니다.
 
-### 배열 예시
+- 이진 트리에 비해 탐색이 빠르다. ( 균형 유지 필요 )
+	- 균형 상태 : O(logN)
+	- 불균형 상태 : O(N)
 
-```
-// 배열 선언
-// type[] name = new type[size]
-int[] arr = new int[5];
+![](https://i.imgur.com/imxi8VW.png)
+ ![](https://i.imgur.com/lB9HhnT.png)
 
-// 선언 + 초기화
-int[] arr1 = {1, 2, 3, 4, 5};
+## 이진 탐색 트리 - 탐색, 삽입, 삭제
+### 탐색
+탐색 연산은 루트 노드에서 시작해, 찾고자 하는 키 값을 가진 노드를 탐색한다.
 
-//elements : 1, 2, 3 ,4 ,5
-//index :    0, 1, 2, 3 ,4 
-//size : 5
+이 과정은 다음과 같습니다:
 
+1. **루트 노드 비교**: 루트 노드의 키 값을 찾고자 하는 키 값과 비교한다.
+2. **왼쪽 서브 트리 이동**: 찾고자 하는 키 값이 루트 노드의 키 값보다 작으면, 왼쪽 자식 노드로 이동한다.
+3. **오른쪽 서브 트리 이동**: 찾고자 하는 키 값이 루트 노드의 키 값보다 크면, 오른쪽 자식 노드로 이동한다.
 
-// 2차원 배열
-int[][] arr2 = {{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}}
-```
+반복적으로 위 단계를 거쳐 키 값을 찾거나, 더 이상 자식 노드가 없는 리프 노드에 도달할 때까지 수행한다.
 
--   연속된 메모리 공간에 데이터들이 순차적으로 저장되어 있다.
--   인덱스는 0부터 시작한다.
--   각 요소는 인덱스를 통해서 다룰 수 있다.
+![](https://i.imgur.com/5R9eTxi.png)
 
-### 배열 특징
+### 삽입
+이진 탐색 트리에 새로운 노드를 삽입하는 방법은 다음과 같다.
 
--   **많은 수의 데이터**를 다룰 때 사용하는 자료 구조
--   각 데이터를 인덱스와 **1 : 1 대응**하도록 구성
--   데이터가 메모리 상에 **연속적**으로 저장
--   크기가 고정적이다. 공간이 낭비되거나 데이터의 재배치가 필요할 수 있다.
--   메모리는 배열이 선언될 때 (컴파일할 때) Stack영역에 할당한다.
+1. Root  부터 비교 시작 ( **중복 키 발견 시 추가하지 않고 종료 **)
+2. 삽입할 키가 현재 노드의 키보다 작으면 왼쪽으로 이동
+3. 삽입할 키가 현재 노드의 키보다 크면 오른쪽으로 이동
+4. Leaf 노드에 도달 후 키 비교하여, 작으면 왼쪽, 크면 오른쪽에 삽입한다.
 
-#### 배열 장점
+![](https://i.imgur.com/FRWTDk0.png)
+![](https://i.imgur.com/cGDe4Ke.png)
 
--   인덱스를 이용하여 데이터에 빠르게 접근 가능 하다.
--   간단하고 사용하기 쉽다.
+### 삭제
 
-#### 배열 단점
--   데이터의 추가/삭제가 번거롭다
-    -   미리 **최대 길이를 정해서 생성**해야 한다.
-    -   가변 길이 배열은 배열의 크기를 변경할 때마다 새로운 배열을 생성한다.
-    -   데이터 삭제 시, 크기는 고정되어 있기 때문에, 빈 공간을 유지한다.
+이진 탐색 트리에서 노드를 삭제하는 경우는 세 가지로 나뉜다.
 
-### 배열 시간 복잡도
+#### 리프 노드 삭제
+리프 노드(자식이 없는 노드)를 삭제하는 경우, 그냥 해당 노드를 삭제하면 된다.
 
-| Operation | Average Case | Worst Case |
-|:---------:|:------------:|:----------:|
-|   read ( 접근 )    |     O(1)     |    O(1)    |
-|  search ( 탐색 )  |     O(n)     |    O(n)    |
-|  insert ( 삽입 ) |     O(n)     |    O(n)    |
-|  delete ( 삭제 ) |     O(n)     |    O(n)    |
+![](https://i.imgur.com/J0nYNdI.png)
 
+#### 한 개의 자식을 가진 노드 삭제
+한 개의 자식을 가진 노드를 삭제할 때, 삭제하려는 노드의 부모와 자식을 직접 연결한다.
 
-### 배열 사용하는 경우
+![](https://i.imgur.com/SF2AgOU.png)
 
--   순차적인 데이터를 저장하며 값보다는 순서가 중요할 때
--   다차원 데이터를 다룰 때
--   어떤 특정 요소를 빠르게 읽어야 할 때
--   데이터 사이즈가 자주 바뀌지 않으면서 요소가 자주 추가되거나 삭제되지 않을 때
+#### 두 개의 자식을 가진 노드 삭제
+가장 복잡한 경우이다.
+이 경우 후계 노드(successor) 또는 선행 노드(predecessor)를 찾아 삭제될 노드의 위치에 넣어야 한다.
 
-## Array List
+후계 노드는 삭제될 노드의 오른쪽 서브 트리에서 가장 작은 키 값을, 선행 노드는 왼쪽 서브 트리에서 가장 큰 키 값을 의미한다.
 
-배열 ( Array )은 정적인 크기를 가지므로 크기를 변경할 수 없다.
+1. 삭제 대상 노드의 왼쪽 서브 트리에서 가장 큰 노드 선택
+2. 삭제 대상 노드의 오른쪽 서브 트리에서 가장 작은 노트 선택
+- 1번, 2번 에서 선택한 노드를 삭제 대상 노드 위치로 넣는다.
 
-만약 크기를 동적으로 변경해야 하면 Array List와 같은 동적 배열을 사용할 수 있다.
-
-### Array List의 특징
-
-1.  동적 크기 조정 : 초기화 할 때 크기를 지정할 필요가 없다.
-2.  참조 타입 ( reference type )만 원소로 저장할 수 있다.
-3.  데이터 중복이 가능하며, null값도 허용한다.
-4.  요소 추가와 삭제 : 요소를 추가 및 삭제 메서드를 제공한다.
-    -   add() : 리스트의 끝에 요소 추가 또는 특정 인덱스에 요소를 삽입한다.
-    -   remove() : 특정 인덱스나, 특정 값에 해당하는 요소를 삭제한다.
-5.  자료를 대량으로 추가 및 삭제 시 내부 처리 작업이 늘어나 성능이 떨어진다.
-
-### Array List 주요 메서드
-
--   **.add((index), val)**: 순서대로 리스트를 추가, 배열 사이즈 초과 시 초기 설정된 사이즈만큼 자동으로 사이즈가 증가함, 인덱스를 추가로 지정해 주면 해당 인덱스에 값을 삽입
--   **.get(index)**: 해당 인덱스의 값 반환
--   **.set(index, val)**: 인덱스로 값 변경
--   **.indexOf(val)**: 값을 제공하면 해당 값의 첫 번째 인덱스를 반환
--   **.lastindexOf(val)**: 해당 값의 마지막 인덱스 반환
--   **.remove(index or val)**: 해당 인덱스의 값 or 해당 값 중 첫 번째 값 삭제
--   **.contains(val)**: 해당 값이 배열에 있는지 검색해서 true / false 반환
--   .containsAll(val1, val2...): argument로 제공한 컬렉션의 모든 값이 포함되어 있는지 여부를 true / false로 반환
--   .toArray(): ArrayList 타입의 인스턴스를 일반 배열 타입으로 반환, 저장할 배열 타입에 맞춰 자동 형변환, 배열 크기 또한 자동으로 맞춰서 바꿔줌
--   **.clear()**: 값 모두 삭제
--   **.isEmpty()**: 비었으면 true, 하나라도 값이 있으면 false 반환
--   .addAll(arr2): 두 컬렉션을 합침
--   .retainAll(arr2): argument로 제공한 컬렉션 내에 들어있는 값을 제외하고 모두 지워줌
--   **.removeAll(arr2)**: argument로 제공한 컬렉션 내에 들어있는 값과 일치하는 값을 모두 지워줌, retainAll() 메서드와 반대
--   **.size()**: 요소 개수 반환
-
-## Java \_ 배열 사용 방법
-
-### 배열 선언
-
-```
-// size 지정
-int[] num = new int[5]
-```
-
-### 배열 값 할당
-
-```
-num[0] = 1;
-num[1] = 2;
-num[2] = 3;
-num[3] = 4;
-num[4] = 5;
-```
-
-### 배열 특정 요소 확인 및 수정
-
-배열의 index = 2인 값을 수정 및 확인하는 예시
-
-```
-num[2] = 10
-System.out.print(num[2]); // 10
-```
-
-### 배열 크기 확인
-
-```
-System.out.print(num.length); // 5
-```
-
-### 배열 반복문
-
-```
-for (int i = 0; i < num.length; i++){
-    System.out.println(num[i]);
-}
-
-for (int el : num) {
-    System.out.println("el : " + el);
-}
-```
-
-### 2차원 배열
-
-```
-System.out.println("== 2차원 배열 ==");  
-    int[][] arr2 = {{1, 2, 3}, {4, 5, 6}};  
-    System.out.println(arr2[0][1]); // 2 
-
-    // 2차원 배열 출력  
-    for(int[] row: arr2) {  
-        for(int item: row) {  
-            System.out.println("item = " + item);  
-        }  
-     }   
-```
-
-## Java \_ ArrayList 사용 방법
-
-### Array List 생성
-
-```
-ArrayList list = new ArrayList(Arrays.asList(1, 2, 3));  
-System.out.println("list = " + list); // list = [1, 2, 3]
-```
-
-### Array List 원소 추가
-
-```
-list.add(4);  
-list.add(5);  
-System.out.println("list = " + list); // list = [1, 2, 3, 4, 5]
-```
-
-### Array List 원소 제거
-
-```
-// 원소 제거 (인덱스)
-list.remove(2);  
-System.out.println("list = " + list); // list1 = [1, 2, 4, 5]
-
-// 원소 제거 (값)  
-list.remove(Integer.valueOf(2));  
-System.out.println("list = " + list); // list = [1, 4, 5]
-```
-
-### Array List 2차원 배열
-
-```
-ArrayList list2d = new ArrayList();  
-ArrayList list1d1 = new ArrayList(Arrays.asList(1, 2, 3));  
-ArrayList list1d2 = new ArrayList(Arrays.asList(4, 5, 6));  
-
-list2d.add(list1d1);  
-list2d.add(list1d2);  
-
-System.out.println("list1d1 = " + list1d1); // list1d1 = [1, 2, 3]  
-System.out.println("list1d2 = " + list1d2); // list1d2 = [4, 5, 6]
-System.out.println("list2d = " + list2d); // list2d = [[1, 2, 3], [4, 5, 6]]
-```
-
-## reference
-
-[https://yoongrammer.tistory.com/43](https://yoongrammer.tistory.com/43)  
-[https://hoehen-flug.tistory.com/28](https://hoehen-flug.tistory.com/28)  
-[https://da2uns2.tistory.com/entry/Java-ArrayList-%EC%82%AC%EC%9A%A9%EB%B2%95%EA%B3%BC-%EC%A3%BC%EC%9A%94-%EB%A9%94%EC%86%8C%EB%93%9C](https://da2uns2.tistory.com/entry/Java-ArrayList-%EC%82%AC%EC%9A%A9%EB%B2%95%EA%B3%BC-%EC%A3%BC%EC%9A%94-%EB%A9%94%EC%86%8C%EB%93%9C)
+![](https://i.imgur.com/wfiUzwz.png)
