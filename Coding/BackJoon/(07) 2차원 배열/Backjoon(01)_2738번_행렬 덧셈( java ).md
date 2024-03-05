@@ -8,7 +8,9 @@
 
 https://www.acmicpc.net/problem/2738
 
-## 문제N*M크기의 두 행렬 A와 B가 주어졌을 때, 두 행렬을 더하는 프로그램을 작성하시오.
+## 문제N
+
+M크기의 두 행렬 A와 B가 주어졌을 때, 두 행렬을 더하는 프로그램을 작성하시오.
 
 ## 입력
 
@@ -39,16 +41,16 @@ https://www.acmicpc.net/problem/2738
 ### 코드설명
 - 코드의 목적:
     
-    - 이 코드는 사용자로부터 입력받은 학생들의 과목별 학점과 학점에 따른 평점을 바탕으로, 전체 평균 평점을 계산해 출력하는 것입니다.
+    - 이 코드는 두 개의 행렬을 입력받아 행렬의 덧셈을 수행하는 것입니다.
 - 코드의 주요 구조:
     
-    - 이 코드는 먼저 과목별 학점에 따른 평점을 HashMap에 저장합니다. 그 후, 사용자로부터 학생들의 과목별 학점을 입력받아 전체 평균 평점을 계산하고 출력합니다.
+    - 이 코드는 먼저 사용자로부터 행렬의 크기를 입력받습니다. 그 후, 두 개의 행렬을 입력받아 행렬의 덧셈을 수행하고 결과를 출력합니다.
 - 코드의 주요 알고리즘:
     
-    - 이 코드는 Java 8의 Stream API를 사용하여 간결하고 명확한 코드를 작성하고 있습니다.
+    - 이 코드는 Java 8의 Stream API와 람다 표현식을 사용하여 간결하고 명확한 코드를 작성하고 있습니다.
 - 코드의 핵심:
     
-    - 이 코드의 핵심은 입력받은 과목별 학점에 따른 평점을 바탕으로 전체 평균 평점을 계산하여 출력하는 것입니다.
+    - 이 코드의 핵심은 행렬의 덧셈을 수행하는 것입니다.
 
 
 ### 풀이
@@ -57,34 +59,31 @@ https://www.acmicpc.net/problem/2738
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class _08_너의평점은 {
+public class _01_행렬덧셈 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String[] arrS = {"A+", "A0", "B+", "B0", "C+", "C0", "D+", "D0", "F"};
-        Double[] arrD = {4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.0};
-
-        // 과목별 학점에 따른 평점을 HashMap에 저장합니다.
-        HashMap<String, Double> grade = new HashMap<>();
-        IntStream.range(0, arrS.length).forEach(i -> grade.put(arrS[i], arrD[i]));
-
-        // 전체 학점과 평점의 합을 저장할 배열을 선언합니다.
-        double[] sum = {0.0, 0.0};
-
-        // 사용자로부터 학생들의 과목별 학점을 입력받아 전체 평균 평점을 계산합니다.
-        for (int i = 0; i < 20; i++) {
-            String[] arr = br.readLine().split(" ");
-            if (!arr[2].equals("P")) {
-                double d = Double.parseDouble(arr[1]);
-                sum[0] += d;
-                sum[1] += d * grade.get(arr[2]);
-            }
+        // 행렬의 크기를 입력받습니다.
+        int[] nm = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        
+        int[][] arr1 = new int[nm[0]][nm[1]];
+        int[][] arr2 = new int[nm[0]][nm[1]];
+        
+        // 두 개의 행렬을 입력받습니다.
+        for (int i = 0; i < nm[0]; i++) {
+            arr1[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        }
+        for (int i = 0; i < nm[0]; i++) {
+            arr2[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
 
-        // 전체 평균 평점을 출력합니다.
-        System.out.printf("%.6f", sum[1] / sum[0]);
+        // 행렬의 덧셈을 수행하고 결과를 출력합니다.
+        IntStream.range(0, nm[0]).forEach(i -> {
+            IntStream.range(0, nm[1]).forEach(j -> System.out.print(arr1[i][j] + arr2[i][j] + " "));
+            System.out.println();
+        });
     }
 }
 ```
