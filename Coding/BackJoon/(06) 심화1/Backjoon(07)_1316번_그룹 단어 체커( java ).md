@@ -1,65 +1,62 @@
+
+
+
+
+
+
 # \[ Backjoon - 1316번 \] 그룹 단어 체커 ( java )
 
 https://www.acmicpc.net/problem/1316
 
 ## 문제
-예전에는 운영체제에서 크로아티아 알파벳을 입력할 수가 없었다. 따라서, 다음과 같이 크로아티아 알파벳을 변경해서 입력했다.
+그룹 단어란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말한다. 예를 들면, ccazzzzbb는 c, a, z, b가 모두 연속해서 나타나고, kin도 k, i, n이 연속해서 나타나기 때문에 그룹 단어이지만, aabbbccb는 b가 떨어져서 나타나기 때문에 그룹 단어가 아니다.
 
-|크로아티아 알파벳|변경|
-|---|---|
-|č|c=|
-|ć|c-|
-|dž|dz=|
-|đ|d-|
-|lj|lj|
-|nj|nj|
-|š|s=|
-|ž|z=|
-
-예를 들어, ljes=njak은 크로아티아 알파벳 6개(lj, e, š, nj, a, k)로 이루어져 있다. 단어가 주어졌을 때, 몇 개의 크로아티아 알파벳으로 이루어져 있는지 출력한다.
-
-dž는 무조건 하나의 알파벳으로 쓰이고, d와 ž가 분리된 것으로 보지 않는다. lj와 nj도 마찬가지이다. 위 목록에 없는 알파벳은 한 글자씩 센다.
+단어 N개를 입력으로 받아 그룹 단어의 개수를 출력하는 프로그램을 작성하시오.
 
 ## 입력
 
-첫째 줄에 최대 100글자의 단어가 주어진다. 알파벳 소문자와 '-', '='로만 이루어져 있다.
-
-단어는 크로아티아 알파벳으로 이루어져 있다. 문제 설명의 표에 나와있는 알파벳은 변경된 형태로 입력된다.
+첫째 줄에 단어의 개수 N이 들어온다. N은 100보다 작거나 같은 자연수이다. 둘째 줄부터 N개의 줄에 단어가 들어온다. 단어는 알파벳 소문자로만 되어있고 중복되지 않으며, 길이는 최대 100이다.
 
 ## 출력
 
-입력으로 주어진 단어가 몇 개의 크로아티아 알파벳으로 이루어져 있는지 출력한다.
+첫째 줄에 그룹 단어의 개수를 출력한다.
 ## 예제
 ### 예제 입력 1 
 
-ljes=njak
+3
+happy
+new
+year
 
-### 예제 출력 1
-
-6
-
-### 예제 입력 2
-
-ddz=z=
-
-### 예제 출력 2
+### 예제 출력 1 
 
 3
 
+### 예제 입력 2 
+
+4
+aba
+abab
+abcabc
+a
+
+### 예제 출력 2 
+1
+
 ## 문제 풀이
 ### 코드설명
-- 코드의 목적:
+-  코드의 목적:
     
-    - 이 코드는 사용자로부터 입력받은 단어에서 가장 많이 사용된 알파벳을 찾아 대문자로 출력하는 것입니다. 만약 가장 많이 사용된 알파벳이 여러 개라면 '?'를 출력합니다.
+    - 이 코드는 사용자로부터 입력받은 문자열 중 '그룹 단어'의 개수를 찾는 것입니다. '그룹 단어'란 단어에 존재하는 모든 문자에 대해서, 각 문자가 연속해서 나타나는 경우만을 말합니다.
 - 코드의 주요 구조:
     
-    - 이 코드는 먼저 사용자로부터 한 개의 단어를 입력받습니다. 그 후, 입력받은 단어에서 각 알파벳이 몇 번 사용되었는지를 계산하고, 가장 많이 사용된 알파벳을 찾아 출력합니다.
+    - 이 코드는 사용자로부터 n개의 문자열을 입력받습니다. 그 후, 각 문자열이 '그룹 단어'인지를 판단하고, '그룹 단어'의 개수를 출력합니다.
 - 코드의 주요 알고리즘:
     
-    - 이 코드는 Java 8의 Stream API와 람다 표현식을 사용하여 입력받은 단어에서 각 알파벳이 몇 번 사용되었는지를 계산하고, 가장 많이 사용된 알파벳을 찾습니다.
+    - 이 코드는 문자열 처리 함수와 HashSet 자료구조를 사용하여 각 문자열이 '그룹 단어'인지를 판단하는 것입니다.
 - 코드의 핵심:
     
-    - 이 코드의 핵심은 Stream API와 람다 표현식을 사용하여 간결하고 명확한 코드를 작성하는 것입니다.
+    - 이 코드의 핵심은 문자열의 각 문자가 연속해서 나타나는 경우만을 찾아내는 것입니다. 이를 위해 이전 문자와 현재 문자를 비교하고, HashSet을 사용하여 이미 나타난 문자를 체크합니다.
 
 
 ### 풀이
@@ -68,35 +65,34 @@ ddz=z=
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.stream.IntStream;
+import java.util.HashSet;
 
-public class _05_단어공부 {
+public class _07_그룹단어체커 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        int answer = n;
 
-        // 각 알파벳이 몇 번 사용되었는지를 저장하는 배열을 선언합니다.
-        int[] arr = new int[26];
+        for (int i = 0; i < n; i++) {
+            String str = br.readLine();
+            HashSet<Character> check = new HashSet<>();
 
-        // 입력받은 단어에서 각 알파벳이 몇 번 사용되었는지를 계산합니다.
-        br.readLine().toUpperCase()
-                .chars().forEach(c -> arr[c - 'A']++);
+            for (int j = 0; j < str.length(); j++) {
+                char c = str.charAt(j);
 
-        // 가장 많이 사용된 알파벳의 횟수를 찾습니다.
-        int max = IntStream.of(arr).max().getAsInt();
-        // 가장 많이 사용된 알파벳의 수를 계산합니다.
-        long count = IntStream.of(arr).filter(i -> i == max).count();
-
-        // 가장 많이 사용된 알파벳이 여러 개라면 '?'를 출력합니다.
-        if (count > 1) {
-            System.out.print('?');
-        } else {
-            // 가장 많이 사용된 알파벳을 대문자로 출력합니다.
-            System.out.print(
-                    (char) (IntStream.range(0, arr.length)
-                            .filter(i -> arr[i] == max)
-                            .findFirst().getAsInt() + 'A')
-            );
+                // 이전 문자와 현재 문자가 다르고, 현재 문자가 이미 나타난 경우 '그룹 단어'가 아닙니다.
+                if (j > 0 && str.charAt(j - 1) != c && check.contains(c)) {
+                    answer--;
+                    break;
+                }
+                
+                // 현재 문자를 HashSet에 추가합니다.
+                check.add(c);
+            }
         }
+
+        // '그룹 단어'의 개수를 출력합니다.
+        System.out.println(answer);
     }
 }
 ```
