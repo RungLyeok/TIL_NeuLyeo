@@ -5,7 +5,9 @@ Java를 이용하여 집합 ( set )을 간단하게 구현한다.
 ## Hashset을 이용하여 구현
 https://leungnyeok.tistory.com/entry/Java-HashSet-%EC%9D%B4%EB%9E%80
 HashSet은 집합 연산 메소드를 제공하기 때문에 쉽게 구현 가능하다.
+
 결과를 확인한 값들은 주석처리 후 다음 결과를 확인해야 옳바른 결과를 확인할 수 있다.
+
 ```
 import java.util.Arrays;  
 import java.util.HashSet;  
@@ -35,6 +37,7 @@ public class a_Set {
 
 
 ## ArrayList를 사용하여 구현 ( 집합 관련 연산 사용 X )
+
 ```
 import java.util.ArrayList;
 
